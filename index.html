@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">☁ Nimbus</div>
+      <p class="tagline">Live weather at a glance</p>
+    </header>
+
+    <!-- Search -->
+    <div class="search-box">
+      <input
+        type="text"
+        id="cityInput"
+        placeholder="Enter city name..."
+        autocomplete="off"
+      />
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <!-- Error Message -->
+    <div class="error" id="errorMsg"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Weather Card -->
+    <div class="card" id="weatherCard">
+
+      <div class="card-top">
+        <div class="location">
+          <h2 id="cityName">—</h2>
+          <span id="countryName"></span>
+        </div>
+        <div class="date" id="dateTime"></div>
+      </div>
+
+      <div class="card-middle">
+        <img id="weatherIcon" src="" alt="Weather icon" />
+        <div class="temp-block">
+          <div class="temperature" id="temperature">—</div>
+          <div class="description" id="description">—</div>
+        </div>
+      </div>
+
+      <div class="card-bottom">
+        <div class="stat">
+          <span class="stat-icon">💧</span>
+          <span class="stat-value" id="humidity">—</span>
+          <span class="stat-label">Humidity</span>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">🌬</span>
+          <span class="stat-value" id="wind">—</span>
+          <span class="stat-label">Wind</span>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">🌡</span>
+          <span class="stat-value" id="feelsLike">—</span>
+          <span class="stat-label">Feels Like</span>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">👁</span>
+          <span class="stat-value" id="visibility">—</span>
+          <span class="stat-label">Visibility</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+/* =====================
+   CSS Variables
+===================== */
+:root {
+  --bg: #0d0f1a;
+  --surface: #141728;
+  --card: #1b1f35;
+  --accent: #4fc3f7;
+  --accent2: #a78bfa;
+  --text: #e8eaf0;
+  --muted: #7b82a0;
+  --border: rgba(255, 255, 255, 0.06);
+  --radius: 20px;
+  --shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+/* =====================
+   Reset & Base
+===================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(79, 195, 247, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(167, 139, 250, 0.07) 0%, transparent 60%);
+}
+
+/* =====================
+   App Wrapper
+===================== */
+.app {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* =====================
+   Header
+===================== */
+.header {
+  text-align: center;
+}
+
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+/* =====================
+   Search Box
+===================== */
+.search-box {
+  display: flex;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 8px 8px 16px;
+}
+
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+}
+
+.search-box input::placeholder {
+  color: var(--muted);
+}
+
+.search-box button {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border: none;
+  border-radius: 12px;
+  color: #0d0f1a;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.search-box button:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+.search-box button:active {
+  transform: scale(0.97);
+}
+
+/* =====================
+   Error Message
+===================== */
+.error {
+  text-align: center;
+  color: #f87171;
+  font-size: 0.88rem;
+  min-height: 20px;
+  transition: opacity 0.3s;
+}
+
+/* =====================
+   Loader
+===================== */
+.loader {
+  display: none;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.loader.active {
+  display: flex;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* =====================
+   Weather Card
+===================== */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeUp 0.4s ease;
+}
+
+.card.visible {
+  display: flex;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Card Top */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.location h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.location span {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.6;
+}
+
+/* Card Middle */
+.card-middle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.card-middle img {
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0 4px 12px rgba(79, 195, 247, 0.3));
+}
+
+.temperature {
+  font-family: 'Syne', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-transform: capitalize;
+  margin-top: 6px;
+  font-weight: 300;
+}
+
+/* Card Bottom - Stats */
+.card-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-icon {
+  font-size: 1.2rem;
+}
+
+.stat-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* =====================
+   Responsive
+===================== */
+@media (max-width: 400px) {
+  .card {
+    padding: 20px;
+  }
+
+  .temperature {
+    font-size: 2.6rem;
+  }
+
+  .card-bottom {
+    grid-template-columns: 1fr 1fr;
+  }
+}
