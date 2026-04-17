@@ -1,6 +1,6 @@
-/* =====================
-   CSS Variables
-===================== */
+/*
+CSS Variables
+*/
 :root {
   --bg: #0d0f1a;
   --surface: #141728;
@@ -14,9 +14,10 @@
   --shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
 }
 
-/* =====================
-   Reset & Base
-===================== */
+/*
+Reset & Base
+*/
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -37,9 +38,9 @@ body {
     radial-gradient(ellipse at 80% 20%, rgba(167, 139, 250, 0.07) 0%, transparent 60%);
 }
 
-/* =====================
-   App Wrapper
-===================== */
+/*
+App Wrapper
+*/
 .app {
   width: 100%;
   max-width: 480px;
@@ -48,9 +49,9 @@ body {
   gap: 20px;
 }
 
-/* =====================
-   Header
-===================== */
+/*
+Header
+*/
 .header {
   text-align: center;
 }
@@ -73,9 +74,9 @@ body {
   font-weight: 300;
 }
 
-/* =====================
-   Search Box
-===================== */
+/* 
+ Search Box
+ */
 .search-box {
   display: flex;
   gap: 10px;
@@ -122,9 +123,8 @@ body {
   transform: scale(0.97);
 }
 
-/* =====================
-   Error Message
-===================== */
+   /* Error Message */
+
 .error {
   text-align: center;
   color: #f87171;
@@ -133,9 +133,9 @@ body {
   transition: opacity 0.3s;
 }
 
-/* =====================
-   Loader
-===================== */
+/*
+Loader
+*/
 .loader {
   display: none;
   justify-content: center;
@@ -159,9 +159,9 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* =====================
-   Weather Card
-===================== */
+/*
+Weather Card
+*/
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -187,7 +187,7 @@ body {
 .card-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items:  flex-start;
 }
 
 .location h2 {
@@ -275,7 +275,7 @@ body {
   font-weight: 300;
 }
 
-/* =====================
+/*
    Responsive
 ===================== */
 @media (max-width: 400px) {
