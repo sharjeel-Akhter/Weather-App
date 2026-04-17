@@ -1,22 +1,15 @@
-// =====================
-//  CONFIG
-// =====================
 
-// 🔑 Replace with your OpenWeatherMap API key
-// Get a free key at: https://openweathermap.org/api
+// Replace with your OpenWeatherMap API key
+
 const API_KEY = "3468e7ac8482cb41c932076c3e672452";
 const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 
-// =====================
-//  DOM ELEMENTS
-// =====================
 const cityInput   = document.getElementById("cityInput");
 const searchBtn   = document.getElementById("searchBtn");
 const errorMsg    = document.getElementById("errorMsg");
 const loader      = document.getElementById("loader");
 const weatherCard = document.getElementById("weatherCard");
 
-// Card fields
 const cityName    = document.getElementById("cityName");
 const countryName = document.getElementById("countryName");
 const dateTime    = document.getElementById("dateTime");
@@ -28,18 +21,14 @@ const wind        = document.getElementById("wind");
 const feelsLike   = document.getElementById("feelsLike");
 const visibility  = document.getElementById("visibility");
 
-// =====================
 //  EVENT LISTENERS
-// =====================
 searchBtn.addEventListener("click", handleSearch);
 
 cityInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") handleSearch();
 });
 
-// =====================
 //  MAIN HANDLER
-// =====================
 function handleSearch() {
   const city = cityInput.value.trim();
 
@@ -51,9 +40,7 @@ function handleSearch() {
   fetchWeather(city);
 }
 
-// =====================
 //  FETCH WEATHER
-// =====================
 async function fetchWeather(city) {
   showLoader(true);
   clearError();
@@ -80,9 +67,7 @@ async function fetchWeather(city) {
   }
 }
 
-// =====================
 //  DISPLAY WEATHER
-// =====================
 function displayWeather(data) {
   // Location
   cityName.textContent    = data.name;
@@ -111,9 +96,7 @@ function displayWeather(data) {
   showCard();
 }
 
-// =====================
 //  HELPERS
-// =====================
 function getFormattedDate() {
   const now = new Date();
   const day  = now.toLocaleDateString("en-US", { weekday: "long" });
